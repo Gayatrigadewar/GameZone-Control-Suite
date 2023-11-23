@@ -92,10 +92,19 @@ if (isset($_GET['deleteBankAccType'])) {
                         <td><?php echo $row->code; ?></td>
 
                         <td>
+
+                        <a class="btn btn-success btn-sm" href="pages_deposit_money.php?account_id=<?php echo $row->account_id; ?>&account_number=<?php echo $row->account_number; ?>&client_id=<?php echo $row->client_id; ?>">
+                            <i class="fas fa-money-bill-alt"></i>
+                            <i class="fas fa-upload"></i>
+                            Deposit
+                          </a>
+
+
+
                           <a class="btn btn-success btn-sm" href="pages_update_accs.php?code=<?php echo $row->code; ?>">
                             <i class="fas fa-cogs"></i>
                             <!-- <i class="fas fa-briefcase"></i> -->
-                            Manage
+                            Manageee
                           </a>
 
                           <a class="btn btn-danger btn-sm" href="pages_manage_accs.php?deleteBankAccType=<?php echo $row->acctype_id; ?>">

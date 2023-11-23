@@ -1,8 +1,8 @@
 <?php
-$DB_host = "localhost";
+$DB_host = "localhost:3307";
 $DB_user = "root";
 $DB_pass = "";
-$DB_name = "client_gamezone";
+$DB_name = "predrag_gamezone";
 try
 {
  $DB_con = new PDO("mysql:host={$DB_host};dbname={$DB_name}",$DB_user,$DB_pass);

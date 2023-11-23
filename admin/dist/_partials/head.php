@@ -33,6 +33,7 @@ while ($sys = $res->fetch_object()) {
         <link rel="icon" type="image/png" sizes="16x16" href="dist/img/<?php echo $sys->sys_logo; ?>">
         <!-- Data Tables CSS -->
         <link rel="stylesheet" type="text/css" href="plugins/datatable/custom_dt_html5.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
 
         <!--Inject SWAL-->
         <?php if (isset($success)) { ?>
@@ -116,4 +117,10 @@ while ($sys = $res->fetch_object()) {
         </script>
         
     </head>
-<?php } ?>
+<?php }
+$result = "SELECT currency FROM ib_systemsettings";
+$stmt = $mysqli->prepare($result);
+$stmt->execute();
+$stmt->bind_result($currency);
+$stmt->fetch();
+$stmt->close(); ?>

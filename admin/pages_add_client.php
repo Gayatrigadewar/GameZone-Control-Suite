@@ -14,6 +14,10 @@ if (isset($_POST['create_staff_account'])) {
     $email = $_POST['email'];
     $password = sha1(md5($_POST['password']));
     $address  = $_POST['address'];
+  
+
+
+    
 
     $profile_pic  = $_FILES["profile_pic"]["name"];
     move_uploaded_file($_FILES["profile_pic"]["tmp_name"], "dist/img/" . $_FILES["profile_pic"]["name"]);
@@ -24,6 +28,34 @@ if (isset($_POST['create_staff_account'])) {
     //bind paramaters
     $rc = $stmt->bind_param('ssssssss', $name, $national_id, $client_number, $phone, $email, $password, $address, $profile_pic);
     $stmt->execute();
+
+
+    // Get the last insert ID
+    $lastInsertId = $mysqli->insert_id;
+    if ($lastInsertId > 0 ){
+        $acc_name = $_POST['name'];
+        $account_number = $_POST['account_number'];
+        $acc_type = $_POST['acc_type'];
+        $acc_rates = $_POST['acc_rates'];
+        $acc_status = "Active";
+        $acc_amount = 0;
+        $client_id  = $lastInsertId;
+        $client_national_id = $national_id;
+        $client_name = $name;
+        $client_phone = $phone;
+        $client_number = $client_number;
+        $client_email  = $email;
+        $client_adr  = "";
+
+        //Insert Captured information to a database table
+        $query = "INSERT INTO iB_bankAccounts (acc_name, account_number, acc_type, acc_rates, acc_status, acc_amount, client_id, client_name, client_national_id, client_phone, client_number, client_email, client_adr) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $stmt = $mysqli->prepare($query);
+        //bind paramaters
+        $rc = $stmt->bind_param('sssssssssssss', $acc_name, $account_number, $acc_type, $acc_rates, $acc_status, $acc_amount, $client_id, $client_name, $client_national_id, $client_phone, $client_number, $client_email, $client_adr);
+        $stmt->execute();
+    }
+
+
 
     //declare a varible which will be passed to alert function
     if ($stmt) {
@@ -55,12 +87,12 @@ if (isset($_POST['create_staff_account'])) {
                 <div class="container-fluid">
                     <div class="row mb-2"><!-- Log on to codeastro.com for more projects! -->
                         <div class="col-sm-6">
-                            <h1>Create Client Account</h1>
+                            <h1>Create User Account</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="pages_dashboard.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="pages_add_client.php">iBanking Clients</a></li>
+                                <li class="breadcrumb-item"><a href="pages_add_client.php">gamezone users</a></li>
                                 <li class="breadcrumb-item active">Add</li>
                             </ol>
                         </div>
@@ -84,11 +116,11 @@ if (isset($_POST['create_staff_account'])) {
                                     <div class="card-body">
                                         <div class="row">
                                             <div class=" col-md-6 form-group">
-                                                <label for="exampleInputEmail1">Client Name</label>
+                                                <label for="exampleInputEmail1">User Name</label>
                                                 <input type="text" name="name" required class="form-control" id="exampleInputEmail1">
                                             </div>
                                             <div class=" col-md-6 form-group">
-                                                <label for="exampleInputPassword1">Client Number</label>
+                                                <label for="exampleInputPassword1">User Number</label>
                                                 <?php
                                                 //PHP function to generate random passenger number
                                                 $length = 4;
@@ -124,6 +156,53 @@ if (isset($_POST['create_staff_account'])) {
                                                 <label for="exampleInputEmail1">Address</label>
                                                 <input type="text" name="address" required class="form-control" id="exampleInputEmail1">
                                             </div>
+
+                                                <!--Bank Account Details-->
+                                                <div class="row">
+                                                <div class=" col-md-6 form-group">
+                                                    <label for="exampleInputEmail1">Membership Type</label>
+                                                    <select class="form-control" onChange="getiBankAccs(this.value);" name="acc_type">
+                                                        <option>Select Any Account types</option>
+                                                        <?php
+                                                        //fetch all iB_Acc_types
+                                                        $ret = "SELECT * FROM  iB_Acc_types ORDER BY RAND() ";
+                                                        $stmt = $mysqli->prepare($ret);
+                                                        $stmt->execute(); //ok
+                                                        $res = $stmt->get_result();
+                                                        $cnt = 1;
+                                                        while ($row = $res->fetch_object()) {
+
+                                                        ?>
+                                                            <option value="<?php echo $row->name; ?> "> <?php echo $row->name; ?> </option>
+                                                        <?php } ?>
+                                                    </select>
+
+                                                </div>
+                                                <div class=" col-md-6 form-group">
+                                                    <label for="exampleInputEmail1">Discount Packs (%)</label>
+                                                    <input type="text" name="acc_rates" readonly required class="form-control" id="AccountRates">
+                                                </div>
+
+                                                <div class=" col-md-6 form-group" style="display:none">
+                                                    <label for="exampleInputEmail1">Account Status</label>
+                                                    <input type="text" name="acc_status" value="Active" readonly required class="form-control">
+                                                </div>
+
+                                                <div class=" col-md-6 form-group" style="display:none">
+                                                    <label for="exampleInputEmail1">Account Amount</label>
+                                                    <input type="text" name="acc_amount" value="0" readonly required class="form-control">
+                                                </div>
+
+                                                <div class=" col-md-6 form-group">
+                                                    <label for="exampleInputEmail1"> User account Number</label>
+                                                    <?php
+                                                    //PHP function to generate random account number
+                                                    $length = 12;
+                                                    $_accnumber =  substr(str_shuffle('0123456789'), 1, $length);
+                                                    ?>
+                                                    <input type="text" name="account_number" value="<?php echo $_accnumber; ?>" required class="form-control" id="exampleInputEmail1">
+                                                </div>
+
 
                                             <div class="col-md-6 form-group">
                                                 <label for="exampleInputFile">Client Profile Picture</label>

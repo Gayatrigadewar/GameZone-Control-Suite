@@ -152,7 +152,7 @@ $stmt->close();
               <div class="info-box">
                 <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">Clients</span>
+                  <span class="info-box-text">Users</span>
                   <span class="info-box-number">
                     <?php echo $iBClients; ?>
                   </span>
@@ -179,17 +179,7 @@ $stmt->close();
             <!-- fix for small devices only -->
             <div class="clearfix hidden-md-up"></div>
 
-            <!--Ibank Acc types-->
-            <div class="col-12 col-sm-6 col-md-3">
-              <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-briefcase"></i></span>
-                <div class="info-box-content">
-                  <span class="info-box-text">Account Types</span>
-                  <span class="info-box-number"><?php echo $iB_AccsType; ?></span>
-                </div>
-              </div>
-            </div>
-            <!-- /.iBank Acc types -->
+           
 
             <!--iBank Accounts-->
             <div class="col-12 col-sm-6 col-md-3">
@@ -212,7 +202,7 @@ $stmt->close();
                 <div class="info-box-content">
                   <span class="info-box-text">Deposits</span>
                   <span class="info-box-number">
-                    $ <?php echo $iB_deposits; ?>
+                    <?php echo $currency.$iB_deposits; ?>
                   </span>
                 </div>
               </div>
@@ -226,7 +216,7 @@ $stmt->close();
 
                 <div class="info-box-content">
                   <span class="info-box-text">Withdrawals</span>
-                  <span class="info-box-number">$ <?php echo $iB_withdrawal; ?> </span>
+                  <span class="info-box-number"> <?php echo $currency.$iB_withdrawal; ?> </span>
                 </div>
               </div>
             </div>
@@ -235,17 +225,7 @@ $stmt->close();
             <!-- fix for small devices only -->
             <div class="clearfix hidden-md-up"></div>
 
-            <!--Transfers-->
-            <div class="col-12 col-sm-6 col-md-3">
-              <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-random"></i></span>
-                <div class="info-box-content">
-                  <span class="info-box-text">Transfers</span>
-                  <span class="info-box-number">$ <?php echo $iB_Transfers; ?></span>
-                </div>
-              </div>
-            </div>
-            <!-- /.Transfers-->
+            
 
             <!--Balances-->
             <div class="col-12 col-sm-6 col-md-3">
@@ -253,7 +233,7 @@ $stmt->close();
                 <span class="info-box-icon bg-purple elevation-1"><i class="fas fa-money-bill-alt"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Wallet Balance</span>
-                  <span class="info-box-number">$ <?php echo $TotalBalInAccount; ?></span>
+                  <span class="info-box-number"> <?php echo $currency.$TotalBalInAccount; ?></span>
                 </div>
               </div>
             </div>
@@ -301,7 +281,7 @@ $stmt->close();
                   <div class="row">
                     <div class="col-sm-3 col-6">
                       <div class="description-block border-right">
-                        <h5 class="description-header">$ <?php echo $iB_deposits; ?></h5>
+                        <h5 class="description-header"> <?php echo $currency.$iB_deposits; ?></h5>
                         <span class="description-text">TOTAL DEPOSITS</span>
                       </div>
                       <!-- /.description-block -->
@@ -399,7 +379,7 @@ $stmt->close();
                             <td><?php echo $row->tr_code; ?></a></td>
                             <td><?php echo $row->account_number; ?></td>
                             <td><?php echo $alertClass; ?></td>
-                            <td>$ <?php echo $row->transaction_amt; ?></td>
+                            <td> <?php echo $currency.$row->transaction_amt; ?></td>
                             <td><?php echo $row->client_name; ?></td>
                             <td><?php echo date("d-M-Y h:m:s ", strtotime($transTstamp)); ?></td>
                           </tr>

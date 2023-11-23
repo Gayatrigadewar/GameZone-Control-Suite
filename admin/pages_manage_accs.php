@@ -41,12 +41,12 @@ if (isset($_GET['deleteBankAccType'])) {
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>iBanking Account Types</h1>
+              <h1>User Account Types</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="pages_dashboard.php">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="pages_manage_accs.php">iBank Account Types</a></li>
+                <li class="breadcrumb-item"><a href="pages_manage_accs.php">User Account Types</a></li>
                 <li class="breadcrumb-item active">Manage Clients</li>
               </ol>
             </div>
@@ -103,6 +103,7 @@ if (isset($_GET['deleteBankAccType'])) {
                             <!-- <i class="fas fa-briefcase"></i> -->
                             Delete
                           </a>
+
 
 
                         </td>

@@ -3,6 +3,8 @@
 $ret = "SELECT * FROM `iB_SystemSettings` ";
 $stmt = $mysqli->prepare($ret);
 $stmt->execute(); //ok
+
+
 $res = $stmt->get_result();
 while ($sys = $res->fetch_object()) {
 ?>
@@ -107,4 +109,11 @@ while ($sys = $res->fetch_object()) {
 
     </head>
 <?php
-} ?>
+} 
+$result = "SELECT currency FROM ib_systemsettings";
+$stmt = $mysqli->prepare($result);
+$stmt->execute();
+$stmt->bind_result($currency);
+$stmt->fetch();
+$stmt->close(); ?>
+?>

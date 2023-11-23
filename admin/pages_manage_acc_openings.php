@@ -42,12 +42,12 @@ if (isset($_GET['deleteBankAcc'])) {
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Manage iBanking Accounts</h1>
+              <h1>Manage Membership Accounts</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="pages_dashboard.php">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="pages_manage_acc_openings.php">iBank Accounts</a></li>
+                <li class="breadcrumb-item"><a href="pages_manage_acc_openings.php">Gamezone Accounts</a></li>
                 <li class="breadcrumb-item active">Manage Accounts</li>
               </ol>
             </div>
@@ -100,10 +100,14 @@ if (isset($_GET['deleteBankAcc'])) {
                         <td><?php echo $row->client_name; ?></td>
                         <td><?php echo date("d-M-Y", strtotime($dateOpened)); ?></td>
                         <td>
+
+                        
+
+
                           <a class="btn btn-success btn-sm" href="pages_update_client_accounts.php?account_id=<?php echo $row->account_id; ?>">
                             <i class="fas fa-cogs"></i>
                             <!-- <i class="fas fa-briefcase"></i> -->
-                            Manage
+                            Managee
                           </a>
 
                           <a class="btn btn-danger btn-sm" href="pages_manage_acc_openings.php?deleteBankAcc=<?php echo $row->account_id; ?>">

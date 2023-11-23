@@ -126,3 +126,40 @@ table.dataTable {
 .style-3.table-hover:not(.table-dark) tbody tr:hover td:first-child {
     color: #1b55e2!important;
 }
+
+/* Style for the navigation item */
+.nav-item {
+  list-style: none; /* Remove default list styling */
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for the navigation link */
+.nav-link {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333; /* Set the text color */
+  background-color: #f8f9fa; /* Set the background color */
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Hover effect for the navigation link */
+.nav-link:hover {
+  background-color: #e9ecef; /* Change the background color on hover */
+}
+
+/* Style for the navigation icon */
+.nav-icon {
+  margin-right: 10px;
+}
+
+/* Style for the navigation text */
+.nav-link p {
+  margin: 0;
+}
+
+/* Optional: Style for the font awesome icon */
+.fas.fa-user-secret {
+  color: #007bff; /* Set the color for the font awesome icon */
+}

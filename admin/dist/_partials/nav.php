@@ -18,6 +18,9 @@
     </div>
   </form> -->
 
+ 
+
+
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
     <!-- Messages Dropdown Menu -->
@@ -70,7 +73,19 @@
 
       </div>
 
+      <li class="navbar-nav">
+  <a href="#">
+    <i class=" "></i>
+  </a>
+  <ul style="list-style: none; padding: 0; margin: 0;">
+    <li style="margin: 0; padding: 0;">
+      <a href="pages_account.php" style="display: block; padding: 10px 15px; text-decoration: none; color: #333; background-color: #f8f9fa; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='#f8f9fa'">
+        <i class="nav-icon fas fa-cogs" style="margin-right: 10px; color: #007bff;"></i>
+        <p style="margin: 0;"></p>
+      </a>
     </li>
+  </ul>
+</li>
 
   </ul>
 </nav>

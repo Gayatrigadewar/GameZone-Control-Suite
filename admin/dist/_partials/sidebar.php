@@ -30,21 +30,14 @@
 
 
       <a href="pages_dashboard.php" class="brand-link">
-        <img src="dist/img/<?php echo $sys->sys_logo; ?>" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="dist/img/<?php echo $sys->sys_logo; ?>" alt=" iBanking Logo " class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"><?php echo $sys->sys_name; ?></span>
       </a>
 
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <?php echo $profile_picture; ?>
-          </div>
-          <div class="info">
-            <a href="#" class="d-block"><?php echo $row->name; ?></a>
-          </div>
-        </div>
+        
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -63,49 +56,16 @@
             </li>
             <!-- ./DAshboard -->
 
-            <!--Account -->
-            <li class="nav-item">
-              <a href="pages_account.php" class="nav-link">
-                <i class="nav-icon fas fa-user-secret"></i>
-                <p>
-                  Account
-                </p>
-              </a>
-            </li>
-            <!-- ./Account-->
+            
 
-            <!--Ibank Staff-->
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-user-tie"></i>
-                <p>
-                   Staff
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages_add_staff.php" class="nav-link">
-                    <i class="fas fa-user-plus nav-icon"></i>
-                    <p>Add Staff</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages_manage_staff.php" class="nav-link">
-                    <i class="fas fa-user-cog nav-icon"></i>
-                    <p>Manage Staff</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <!-- ./iBank staff-->
+            
 
             <!--Clients -->
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
-                   Clients
+                   Users
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -113,13 +73,13 @@
                 <li class="nav-item">
                   <a href="pages_add_client.php" class="nav-link">
                     <i class="fas fa-user-plus nav-icon"></i>
-                    <p>Add Client</p>
+                    <p>Add Users</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages_manage_clients.php" class="nav-link">
                     <i class="fas fa-user-cog nav-icon"></i>
-                    <p>Manage Clients</p>
+                    <p>Manage Users</p>
                   </a>
                 </li>
               </ul>
@@ -131,7 +91,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-briefcase"></i>
                 <p>
-                   Accounts
+                   Memberships
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -139,13 +99,13 @@
                 <li class="nav-item">
                   <a href="pages_add_acc_type.php" class="nav-link">
                     <i class="far fas fa-plus nav-icon"></i>
-                    <p>Add Acc Type</p>
+                    <p>Add Membership Type</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages_manage_accs.php" class="nav-link">
                     <i class="fas fa-cogs nav-icon"></i>
-                    <p>Manage Acc Types</p>
+                    <p>Manage Membership Types</p>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -286,6 +246,32 @@
               </a>
             </li>
             <!-- ./ Password Resets-->
+
+            <!--Ibank Staff-->
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user-tie"></i>
+                <p>
+                   Staff
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages_add_staff.php" class="nav-link">
+                    <i class="fas fa-user-plus nav-icon"></i>
+                    <p>Add Staff</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages_manage_staff.php" class="nav-link">
+                    <i class="fas fa-user-cog nav-icon"></i>
+                    <p>Manage Staff</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- ./iBank staff-->
 
             <!-- Log Out -->
             <li class="nav-item">

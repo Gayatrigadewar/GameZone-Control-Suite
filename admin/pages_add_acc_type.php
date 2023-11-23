@@ -49,12 +49,12 @@ if (isset($_POST['create_acc_type'])) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Create Account Categories</h1>
+                            <h1>Create Membership Categories</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="pages_dashboard.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="pages_add_acc_type.php">iBanking</a></li>
+                                <li class="breadcrumb-item"><a href="pages_add_acc_type.php">Membership_category</a></li>
                                 <li class="breadcrumb-item active">Add</li>
                             </ol>
                         </div>
@@ -78,15 +78,15 @@ if (isset($_POST['create_acc_type'])) {
                                     <div class="card-body">
                                         <div class="row">
                                             <div class=" col-md-4 form-group">
-                                                <label for="exampleInputEmail1">Account Category Name</label>
+                                                <label for="exampleInputEmail1">Membership Category Name</label>
                                                 <input type="text" name="name" required class="form-control" id="exampleInputEmail1">
                                             </div>
                                             <div class=" col-md-4 form-group">
-                                                <label for="exampleInputEmail1">Account Category Rates % Per Year </label>
+                                                <label for="exampleInputEmail1">Membership Category Rates % Per Year </label>
                                                 <input type="text" name="rate" required class="form-control" id="exampleInputEmail1">
                                             </div>
                                             <div class=" col-md-4 form-group">
-                                                <label for="exampleInputPassword1">Account Category Code</label>
+                                                <label for="exampleInputPassword1">Membership Category Code</label>
                                                 <?php
                                                 //PHP function to generate random passenger number
                                                 $length = 5;
@@ -98,7 +98,7 @@ if (isset($_POST['create_acc_type'])) {
 
                                         <div class="row">
                                             <div class=" col-md-12 form-group">
-                                                <label for="exampleInputEmail1">Account Category Decription</label>
+                                                <label for="exampleInputEmail1">Membership Category Decription</label>
                                                 <textarea type="text" name="description" required class="form-control" id="desc"></textarea>
                                             </div>
                                         </div>

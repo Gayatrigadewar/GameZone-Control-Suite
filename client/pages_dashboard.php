@@ -123,7 +123,7 @@ $stmt->close();
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Client Dashboard</h1>
+              <h1 class="m-0 text-dark">User Dashboard</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -135,6 +135,7 @@ $stmt->close();
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
+     
 
       <!-- Main content -->
       <section class="content">
@@ -147,7 +148,7 @@ $stmt->close();
                 <div class="info-box-content">
                   <span class="info-box-text">Deposits</span>
                   <span class="info-box-number">
-                    $ <?php echo $iB_deposits; ?>
+                    INR <?php echo $iB_deposits; ?>
                   </span>
                 </div>
               </div>
@@ -155,31 +156,31 @@ $stmt->close();
             <!----./ iBank Deposits-->
 
             <!--iBank Withdrwals-->
-            <div class="col-12 col-sm-6 col-md-3">
+            <!-- <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-3">
                 <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-download"></i></span>
 
                 <div class="info-box-content">
                   <span class="info-box-text">Withdrawals</span>
-                  <span class="info-box-number">$ <?php echo $iB_withdrawal; ?> </span>
+                  <span class="info-box-number"> INR <?php echo $iB_withdrawal; ?> </span>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- Withdrawals-->
 
             <!-- fix for small devices only -->
             <div class="clearfix hidden-md-up"></div>
 
             <!--Transfers-->
-            <div class="col-12 col-sm-6 col-md-3">
+            <!-- <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-3">
                 <span class="info-box-icon bg-success elevation-1"><i class="fas fa-random"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Transfers</span>
-                  <span class="info-box-number">$ <?php echo $iB_Transfers; ?></span>
+                  <span class="info-box-number"> INR <?php echo $iB_Transfers; ?></span>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- /.Transfers-->
 
             <!--Balances-->
@@ -188,12 +189,12 @@ $stmt->close();
                 <span class="info-box-icon bg-purple elevation-1"><i class="fas fa-money-bill-alt"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Wallet Balance</span>
-                  <span class="info-box-number">$ <?php echo $TotalBalInAccount; ?></span>
+                  <span class="info-box-number">INR <?php echo $TotalBalInAccount; ?></span>
                 </div>
               </div>
             </div>
             <!-- ./Balances-->
-          </div>
+          <!-- </div>
 
           <div class="row">
             <div class="col-md-12">
@@ -208,72 +209,73 @@ $stmt->close();
                       <i class="fas fa-times"></i>
                     </button>
                   </div>
-                </div>
+                </div> -->
                 <!-- /.card-header -->
-                <div class="card-body">
+                <!-- <div class="card-body">
                   <div class="row">
                     <div class="col-md-6">
-                      <div class="chart">
+                      <div class="chart"> -->
                         <!-- Transaction Donought chart Canvas -->
-                        <div id="PieChart" class="col-md-6" style="height: 400px; max-width: 500px; margin: 0px auto;"></div>
-                      </div>
+                        <!-- <div id="PieChart" class="col-md-6" style="height: 400px; max-width: 500px; margin: 0px auto;"></div>
+                      </div> -->
                       <!-- /.chart-responsive -->
-                    </div>
+                    <!-- </div>
                     <hr>
                     <div class="col-md-6">
                       <div class="chart">
                         <div id="AccountsPerAccountCategories" class="col-md-6" style="height: 400px; max-width: 500px; margin: 0px auto;"></div>
-                      </div>
+                      </div> -->
                       <!-- /.chart-responsive -->
-                    </div>
+                    <!-- </div> -->
 
                     <!-- /.col -->
-                  </div>
+                  <!-- </div> -->
                   <!-- /.row -->
-                </div><!-- Log on to codeastro.com for more projects! -->
+                <!-- </div> -->
+                <!-- Log on to codeastro.com for more projects! -->
                 <!-- ./card-body -->
-                <div class="card-footer">
+                <!-- <div class="card-footer">
                   <div class="row">
                     <div class="col-sm-3 col-6">
                       <div class="description-block border-right">
-                        <h5 class="description-header">$ <?php echo $iB_deposits; ?></h5>
+                        <h5 class="description-header">INR <?php echo $iB_deposits; ?></h5>
                         <span class="description-text">TOTAL DEPOSITS</span>
-                      </div>
+                      </div> -->
                       <!-- /.description-block -->
-                    </div>
+                    <!-- </div> -->
                     <!-- /.col -->
-                    <div class="col-sm-3 col-6">
+                    <!-- <div class="col-sm-3 col-6">
                       <div class="description-block border-right">
-                        <h5 class="description-header">$ <?php echo $iB_withdrawal; ?></h5>
+                        <h5 class="description-header">INR <?php echo $iB_withdrawal; ?></h5>
                         <span class="description-text">TOTAL WITHDRAWALS</span>
-                      </div>
+                      </div> -->
                       <!-- /.description-block -->
-                    </div>
+                    <!-- </div> -->
                     <!-- /.col -->
-                    <div class="col-sm-3 col-6">
+                    <!-- <div class="col-sm-3 col-6">
                       <div class="description-block border-right">
-                        <h5 class="description-header">$ <?php echo $iB_Transfers; ?> </h5>
+                        <h5 class="description-header">INR <?php echo $iB_Transfers; ?> </h5>
                         <span class="description-text">TOTAL TRANSFERS</span>
-                      </div>
+                      </div> -->
                       <!-- /.description-block -->
-                    </div>
+                    <!-- </div> -->
                     <!-- /.col -->
-                    <div class="col-sm-3 col-6">
+                    <!-- <div class="col-sm-3 col-6">
                       <div class="description-block">
-                        <h5 class="description-header">$ <?php echo $new_amt; ?> </h5>
+                        <h5 class="description-header">INR<?php echo $new_amt; ?> </h5>
                         <span class="description-text">TOTAL MONEY IN  Account</span>
-                      </div>
+                      </div> -->
                       <!-- /.description-block -->
-                    </div>
-                  </div>
+                    <!-- </div> -->
+                  <!-- </div> -->
                   <!-- /.row -->
-                </div>
+                <!-- </div> -->
                 <!-- /.card-footer -->
-              </div>
+              <!-- </div> -->
               <!-- /.card -->
-            </div>
+            <!-- </div> -->
             <!-- /.col -->
-          </div>
+          <!-- </div> -->
           <!-- /.row -->
 
           <!-- Main row -->
@@ -336,7 +338,7 @@ $stmt->close();
                             <td><?php echo $row->tr_code; ?></a></td>
                             <td><?php echo $row->account_number; ?></td>
                             <td><?php echo $alertClass; ?></td>
-                            <td>$ <?php echo $row->transaction_amt; ?></td>
+                            <td> <?php echo $currency.$row->transaction_amt; ?></td>
                             <td><?php echo $row->client_name; ?></td>
                             <td><?php echo date("d-M-Y h:m:s ", strtotime($transTstamp)); ?></td>
                           </tr>

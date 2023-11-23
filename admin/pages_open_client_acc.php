@@ -131,60 +131,7 @@ if (isset($_POST['open_account'])) {
                                             </div>
                                             <!-- ./End Personal Details -->
 
-                                            <!--Bank Account Details-->
-                                            <div class="row">
-                                                <div class=" col-md-6 form-group">
-                                                    <label for="exampleInputEmail1">Account Type</label>
-                                                    <select class="form-control" onChange="getiBankAccs(this.value);" name="acc_type">
-                                                        <option>Select Any Account types</option>
-                                                        <?php
-                                                        //fetch all iB_Acc_types
-                                                        $ret = "SELECT * FROM  iB_Acc_types ORDER BY RAND() ";
-                                                        $stmt = $mysqli->prepare($ret);
-                                                        $stmt->execute(); //ok
-                                                        $res = $stmt->get_result();
-                                                        $cnt = 1;
-                                                        while ($row = $res->fetch_object()) {
-
-                                                        ?>
-                                                            <option value="<?php echo $row->name; ?> "> <?php echo $row->name; ?> </option>
-                                                        <?php } ?>
-                                                    </select>
-
-                                                </div>
-                                                <div class=" col-md-6 form-group">
-                                                    <label for="exampleInputEmail1">Account Type Rates (%)</label>
-                                                    <input type="text" name="acc_rates" readonly required class="form-control" id="AccountRates">
-                                                </div>
-
-                                                <div class=" col-md-6 form-group" style="display:none">
-                                                    <label for="exampleInputEmail1">Account Status</label>
-                                                    <input type="text" name="acc_status" value="Active" readonly required class="form-control">
-                                                </div>
-
-                                                <div class=" col-md-6 form-group" style="display:none">
-                                                    <label for="exampleInputEmail1">Account Amount</label>
-                                                    <input type="text" name="acc_amount" value="0" readonly required class="form-control">
-                                                </div>
-
-                                            </div><!-- Log on to codeastro.com for more projects! -->
-                                            <div class="row">
-                                                <div class=" col-md-6 form-group">
-                                                    <label for="exampleInputEmail1">Account Name</label>
-                                                    <input type="text" name="acc_name" required class="form-control" id="exampleInputEmail1">
-                                                </div>
-
-                                                <div class=" col-md-6 form-group">
-                                                    <label for="exampleInputEmail1">Account Number</label>
-                                                    <?php
-                                                    //PHP function to generate random account number
-                                                    $length = 12;
-                                                    $_accnumber =  substr(str_shuffle('0123456789'), 1, $length);
-                                                    ?>
-                                                    <input type="text" name="account_number" value="<?php echo $_accnumber; ?>" required class="form-control" id="exampleInputEmail1">
-                                                </div>
-                                            </div>
-                                        </div>
+                                           
                                         <!-- /.card-body -->
                                         <div class="card-footer">
                                             <button type="submit" name="open_account" class="btn btn-success">Open iBanking Account</button>

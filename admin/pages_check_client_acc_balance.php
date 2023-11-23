@@ -81,7 +81,7 @@ $admin_id = $_SESSION['admin_id'];
             //get the rate
             $rate_amt = $banking_rate * $money_in;
             //compute the intrest + balance 
-            $totalMoney = $rate_amt + $money_in;
+            $totalMoney = $rate_amt + _in;
 
         ?>
             <div class="content-wrapper">
@@ -165,7 +165,7 @@ $admin_id = $_SESSION['admin_id'];
                                                         <td>$ <?php echo $deposit; ?></td>
                                                         <td>$ <?php echo $withdrawal; ?></td>
                                                         <td>$ <?php echo $Transfer; ?></td>
-                                                        <td>$ <?php echo $money_in; ?></td>
+                                                        <td>$ <?php echo _in; ?></td>
                                                     </tr>
 
                                                 </tbody>
