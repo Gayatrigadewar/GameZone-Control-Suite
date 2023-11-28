@@ -14,6 +14,8 @@ if (isset($_POST['create_staff_account'])) {
     $email = $_POST['email'];
     $password = sha1(md5($_POST['password']));
     $address  = $_POST['address'];
+
+    
   
 
 

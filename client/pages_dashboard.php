@@ -1,9 +1,59 @@
 <?php
+// session_start();
+// include('conf/config.php');
+// include('conf/checklogin.php');
+// check_login();
+// $client_id = $_SESSION['client_id'];
+
+
 session_start();
 include('conf/config.php');
-include('conf/checklogin.php');
-check_login();
+$tz = 'Asia/Kolkata';   
+   date_default_timezone_set($tz);
+// Check if the user is logged in
+if (!isset($_SESSION['client_id'])) {
+    // Redirect to login page or handle unauthorized access
+    header("location: login.php");
+    exit();
+}
+function login() {
+  // Do logic and log in the user
+  // Set a session variable
+
+  if ($logged_in) {
+    $_SESSION['logged_in_time'] = time();
+  }
+}
+
+function logout() {
+  // do logic and log OUT the user
+  // clear the session variable
+  unset($_SESSION['logged_in_time']);
+}
+
+
+// Get client ID from session
 $client_id = $_SESSION['client_id'];
+
+// Retrieve login time from the database
+$query = "SELECT login_time FROM login_activity WHERE client_id = ? AND login_status = 1 ORDER BY login_time DESC LIMIT 1";
+$stmt = $mysqli->prepare($query);
+$stmt->bind_param('i', $client_id);
+$stmt->execute();
+$stmt->bind_result($loginTime);
+$stmt->fetch();
+$stmt->close();
+
+// Check if login time was retrieved successfully
+if (!$loginTime) {
+    // Handle the case when login time is not available
+    die('Error retrieving login time from the database.');
+}
+
+
+
+// ... rest of your code
+
 
 /*
     get all dashboard analytics 
@@ -142,7 +192,7 @@ $stmt->close();
         <div class="container-fluid">
           <div class="row">
             <!--iBank Deposits -->
-            <div class="col-12 col-sm-6 col-md-3">
+            <!-- <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box">
                 <span class="info-box-icon bg-info elevation-1"><i class="fas fa-upload"></i></span>
                 <div class="info-box-content">
@@ -152,8 +202,86 @@ $stmt->close();
                   </span>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!----./ iBank Deposits-->
+
+        <!--time running status -->
+        <?php
+$_SESSION['logged_in_time']  = $loginTime;
+
+
+
+?>
+
+
+
+<script>
+    // Function to get the time since login
+    function getTimeSinceLogin() {
+    
+      <?php
+        if (isset($_SESSION['logged_in_time'])) {
+            $login_time = strtotime($_SESSION['logged_in_time']);
+        } else {
+          $login_time = strtotime($_SESSION['logged_in_time']);
+        }
+        ?>
+  
+        // Calculate time elapsed in seconds
+        const timeElapsed = Math.floor((new Date() - new Date('<?= $_SESSION['logged_in_time'] ?>')) / 1000);
+
+        // Convert seconds to hours, minutes, and seconds
+        const hours = Math.floor(timeElapsed / 3600);
+        const minutes = Math.floor((timeElapsed % 3600) / 60);
+        const seconds = timeElapsed % 60;
+
+        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+
+    // Update the timer every second
+    function updateTimer() {
+        document.getElementById('timer').innerText = getTimeSinceLogin();
+    }
+
+    // Initial call to start the timer
+   // updateTimer();
+
+    // Update the timer every second
+    setInterval(updateTimer, 1000);
+</script>
+        <div class="col-6 col-sm-6 col-md-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success elevation-1"><i class="far fa-clock"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Time Since Login</span>
+                        <span class="info-box-number" id="timer">
+                          <!-- <div>
+
+                          </div>
+<div class="info-box-content">
+    <span class="info-box-text">Time Since Login</span>
+    <span class="info-box-number" id="timer"></span>
+</div>
+                         -->
+                            <?php
+                            
+                            
+                            $currentTime = time(); 
+                            // $timeDifference = $currentTime - $_SESSION['login_time'];
+
+                           
+                            // $hours = floor($timeDifference / 3600);
+                            // $minutes = floor(($timeDifference % 3600) / 60);
+                            // $seconds = $timeDifference % 60;
+
+                            // echo sprintf("%02d:%02d:%02d", $hours, $minutes, $seconds);
+                            ?>
+                        </span>
+                    </div>
+                </div>
+        </div> 
+        
+
 
             <!--iBank Withdrwals-->
             <!-- <div class="col-12 col-sm-6 col-md-3">
@@ -184,7 +312,7 @@ $stmt->close();
             <!-- /.Transfers-->
 
             <!--Balances-->
-            <div class="col-12 col-sm-6 col-md-3">
+            <div class="col-6 col-sm-6 col-md-6">
               <div class="info-box mb-3">
                 <span class="info-box-icon bg-purple elevation-1"><i class="fas fa-money-bill-alt"></i></span>
                 <div class="info-box-content">
@@ -196,104 +324,22 @@ $stmt->close();
             <!-- ./Balances-->
           <!-- </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <h5 class="card-title">Advanced Analytics</h5>
-                  <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                </div> -->
-                <!-- /.card-header -->
-                <!-- <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="chart"> -->
-                        <!-- Transaction Donought chart Canvas -->
-                        <!-- <div id="PieChart" class="col-md-6" style="height: 400px; max-width: 500px; margin: 0px auto;"></div>
-                      </div> -->
-                      <!-- /.chart-responsive -->
-                    <!-- </div>
-                    <hr>
-                    <div class="col-md-6">
-                      <div class="chart">
-                        <div id="AccountsPerAccountCategories" class="col-md-6" style="height: 400px; max-width: 500px; margin: 0px auto;"></div>
-                      </div> -->
-                      <!-- /.chart-responsive -->
-                    <!-- </div> -->
-
-                    <!-- /.col -->
-                  <!-- </div> -->
-                  <!-- /.row -->
-                <!-- </div> -->
-                <!-- Log on to codeastro.com for more projects! -->
-                <!-- ./card-body -->
-                <!-- <div class="card-footer">
-                  <div class="row">
-                    <div class="col-sm-3 col-6">
-                      <div class="description-block border-right">
-                        <h5 class="description-header">INR <?php echo $iB_deposits; ?></h5>
-                        <span class="description-text">TOTAL DEPOSITS</span>
-                      </div> -->
-                      <!-- /.description-block -->
-                    <!-- </div> -->
-                    <!-- /.col -->
-                    <!-- <div class="col-sm-3 col-6">
-                      <div class="description-block border-right">
-                        <h5 class="description-header">INR <?php echo $iB_withdrawal; ?></h5>
-                        <span class="description-text">TOTAL WITHDRAWALS</span>
-                      </div> -->
-                      <!-- /.description-block -->
-                    <!-- </div> -->
-                    <!-- /.col -->
-                    <!-- <div class="col-sm-3 col-6">
-                      <div class="description-block border-right">
-                        <h5 class="description-header">INR <?php echo $iB_Transfers; ?> </h5>
-                        <span class="description-text">TOTAL TRANSFERS</span>
-                      </div> -->
-                      <!-- /.description-block -->
-                    <!-- </div> -->
-                    <!-- /.col -->
-                    <!-- <div class="col-sm-3 col-6">
-                      <div class="description-block">
-                        <h5 class="description-header">INR<?php echo $new_amt; ?> </h5>
-                        <span class="description-text">TOTAL MONEY IN  Account</span>
-                      </div> -->
-                      <!-- /.description-block -->
-                    <!-- </div> -->
-                  <!-- </div> -->
-                  <!-- /.row -->
-                <!-- </div> -->
-                <!-- /.card-footer -->
-              <!-- </div> -->
-              <!-- /.card -->
-            <!-- </div> -->
-            <!-- /.col -->
-          <!-- </div> -->
-          <!-- /.row -->
+         
 
           <!-- Main row -->
-          <div class="row">
-            <!-- Left col -->
-            <div class="col-md-12">
-              <!-- TABLE: Transactions -->
-              <div class="card">
-                <div class="card-header border-transparent">
-                  <h3 class="card-title">Latest Transactions</h3>
-
+          <div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Latest Transaction</h5>
                   <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse">
                       <i class="fas fa-minus"></i>
                     </button>
                     <button type="button" class="btn btn-tool" data-card-widget="remove">
                       <i class="fas fa-times"></i>
-                    </button>
+                    </button> -->
                   </div>
                 </div><!-- Log on to codeastro.com for more projects! -->
                 <!-- /.card-header -->
@@ -408,6 +454,15 @@ $stmt->close();
   <!--Load Canvas JS -->
   <script src="plugins/canvasjs.min.js"></script>
   <!--Load Few Charts-->
+
+
+
+
+
+
+
+
+  
   <script>
     window.onload = function() {
 
@@ -598,6 +653,7 @@ $stmt->close();
 
     }
   </script>
+
 
 </body>
 

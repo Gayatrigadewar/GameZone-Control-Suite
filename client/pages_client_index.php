@@ -1,8 +1,14 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Kolkata');
+echo "Server Time (Indian Standard Time): " . date('Y-m-d H:i:s');
 include('conf/config.php'); //get configuration file
+include('script/query.php');
+
+
 if (isset($_POST['login'])) {
   $email = $_POST['email'];
+  $loginTime = date('Y-m-d H:i:s');
   $password = sha1(md5($_POST['password'])); //double encrypt to increase security
   $stmt = $mysqli->prepare("SELECT email, password, client_id  FROM iB_clients   WHERE email=? AND password=?"); //sql to log in user
   $stmt->bind_param('ss', $email, $password); //bind fetched parameters
@@ -10,10 +16,10 @@ if (isset($_POST['login'])) {
   $stmt->bind_result($email, $password, $client_id); //bind result
   $rs = $stmt->fetch();
   $_SESSION['client_id'] = $client_id; //assaign session toc lient id
+
   //$uip=$_SERVER['REMOTE_ADDR'];
   //$ldate=date('d/m/Y h:i:s', time());
-//   if ($rs) { //if its sucessfull
-    
+//   if ($rs) { //if its sucessfull   
 //     header("location:pages_dashboard.php");
 
 //   } else {
@@ -24,24 +30,42 @@ if (isset($_POST['login'])) {
 
 if ($rs) { // if it's successful
   // Insert login activity record
-  $loginTime = date('Y-m-d H:i:s');
-  $logoutTime = null; // Assuming the user hasn't logged out yet
+  // Assuming the user hasn't logged out yet
   $systemId = getSystemId(); // You need to implement a function to get the system_id
   $loginStatus = 1; // You can set this based on your requirements (1 for login, 0 for logout)
-
+  
   $stmt->close();
+  $loginTime = date('Y-m-d H:i:s');
 
-  $insertQuery = "INSERT INTO login_activity (client_id, login_time, logout_time, system_id, login_status) VALUES (?, ?, ?, ?, ?)";
+  
+
+
+  $insertQuery = "INSERT INTO login_activity (client_id, login_time,  system_id, login_status) VALUES (?, ?,  ?, ?)";
   $insertStmt = $mysqli->prepare($insertQuery);
 
   if ($insertStmt) {
-      $insertStmt->bind_param('isssi', $client_id, $loginTime, $logoutTime, $systemId, $loginStatus);
+      $insertStmt->bind_param('issi', $client_id, $loginTime,  $systemId, $loginStatus);
       $insertStmt->execute();
       $insertStmt->close();
   } else {
       // Handle the error if the insert statement preparation fails
       die('Error in preparing the insert statement: ' . $mysqli->error);
   }
+  
+   // Set up JavaScript code for periodic timer update
+   echo "<script>
+   setInterval(function() {
+       var currentTime = new Date();
+       console.log('Updating timer:', currentTime);
+       $.post('update_timer.php', { client_id: $client_id, login_time: currentTime })
+           .done(function(response) {
+               console.log('Update successful:', response);
+           })
+           .fail(function(error) {
+               console.error('Update failed:', error);
+           });
+   }, 60000); // Update every 1 minute
+</script>";
 
   header("location: pages_dashboard.php");
 } else {
@@ -53,10 +77,11 @@ elseif (isset($_POST['logout'])) {
   $logoutTime = date('Y-m-d H:i:s');
   $systemId = getSystemId(); // You need to implement a function to get the system_id
   $loginStatus = 0; // Set to 0 for logout
-
+  
   $updateQuery = "UPDATE login_activity SET logout_time=?, login_status=? WHERE client_id=? AND logout_time IS NULL";
-  $updateStmt = $mysqli->prepare($updateQuery);
 
+  $updateStmt = $mysqli->prepare($updateQuery);
+  
   if ($updateStmt) {
       $updateStmt->bind_param('sii', $logoutTime, $loginStatus, $_SESSION['client_id']);
       $updateStmt->execute();
@@ -87,9 +112,6 @@ function getSystemId() {
 
   // Get server IP address
   $serverIp = $_SERVER['SERVER_ADDR'];
-
-  // Generate a unique identifier (you can use other methods if needed)
-  
 
   // Concatenate and hash the values to create a system_id
   $systemId = sha1($serverName . $serverIp . $uniqueId);
