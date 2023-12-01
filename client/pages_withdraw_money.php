@@ -18,6 +18,9 @@ if (isset($_POST['withdrawal'])) {
     $client_name  = $_POST['client_name'];
     $client_national_id  = $_POST['client_national_id'];
     $transaction_amt = $_POST['transaction_amt'];
+
+    $withdraw_amount = $_POST['withdraw_amount'];
+
     $client_phone = $_POST['client_phone'];
     //$acc_new_amt = $_POST['acc_new_amt'];
     //$notification_details = $_POST['notification_details'];
@@ -111,6 +114,7 @@ if (isset($_POST['withdrawal'])) {
         $stmt->execute(); //ok
         $res = $stmt->get_result();
         $cnt = 1;
+        echo"114";
         while ($row = $res->fetch_object()) {
 
 

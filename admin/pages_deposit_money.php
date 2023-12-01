@@ -47,30 +47,40 @@ if (isset($_POST['deposit'])) {
         $err = "Please Try Again Or Try Later";
     }
 }
-/*
-    if(isset($_POST['deposit']))
-    {
-       $account_id = $_GET['account_id'];
-       $acc_amount = $_POST['acc_amount'];
-        
-        //Insert Captured information to a database table
-        $query="UPDATE  iB_bankAccounts SET acc_amount=? WHERE account_id=?";
-        $stmt = $mysqli->prepare($query);
-        //bind paramaters
-        $rc=$stmt->bind_param('si', $acc_amount, $account_id);
-        $stmt->execute();
 
-        //declare a varible which will be passed to alert function
-        if($stmt )
-        {
-            $success = "Money Deposited";
-        }
-        else
-        {
-            $err = "Please Try Again Or Try Later";
-        }   
-    }   
-    */
+if(isset($_POST['deposit'])) {
+    $account_id = $_GET['account_id'];
+    $acc_amount = $_POST['transaction_amt'];
+
+    // Insert Captured information to a database table
+    $query = "UPDATE iB_bankAccounts SET acc_amount = acc_amount + ? WHERE account_id = ?";
+    $stmt = $mysqli->prepare($query);
+
+    // Bind parameters
+    $stmt->bind_param('di', $acc_amount, $account_id);
+
+    // Execute the statement
+    $result = $stmt->execute();
+
+    // Check if the query was successful
+    if ($result) {
+        // Fetch the updated acc_amount
+        $stmt->close(); // Close previous statement
+        $stmt = $mysqli->prepare("SELECT acc_amount FROM iB_bankAccounts WHERE account_id = ?");
+        $stmt->bind_param('i', $account_id);
+        $stmt->execute();
+        $stmt->bind_result($deposit);
+        $stmt->fetch();
+
+        $success = "Money Deposited. Updated acc_amount: $acc_amount";
+    } else {
+        $err = "Please Try Again Or Try Later";
+    }
+
+    $stmt->close(); // Close the statement
+}
+   
+    
 ?>
 <!DOCTYPE html>
 <html>

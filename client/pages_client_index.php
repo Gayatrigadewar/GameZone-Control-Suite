@@ -15,6 +15,7 @@ if (isset($_POST['login'])) {
   $stmt->execute(); //execute bind
   $stmt->bind_result($email, $password, $client_id); //bind result
   $rs = $stmt->fetch();
+  
   $_SESSION['client_id'] = $client_id; //assaign session toc lient id
 
   //$uip=$_SERVER['REMOTE_ADDR'];
@@ -47,6 +48,7 @@ if ($rs) { // if it's successful
       $insertStmt->bind_param('issi', $client_id, $loginTime,  $systemId, $loginStatus);
       $insertStmt->execute();
       $insertStmt->close();
+
   } else {
       // Handle the error if the insert statement preparation fails
       die('Error in preparing the insert statement: ' . $mysqli->error);
@@ -107,16 +109,7 @@ elseif (isset($_POST['logout'])) {
 // }
 
 function getSystemId() {
-  // Get server name
-  $serverName = $_SERVER['SERVER_NAME'];
-
-  // Get server IP address
-  $serverIp = $_SERVER['SERVER_ADDR'];
-
-  // Concatenate and hash the values to create a system_id
-  $systemId = sha1($serverName . $serverIp . $uniqueId);
-
-  return $systemId;
+  return gethostname();
 }
 
 // Example usage
