@@ -152,15 +152,7 @@
                     <p>Transfers</p>
                   </a>
                 </li>
-                <!--
-              <li class="nav-item">
-                <a href="pages_loans.php" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Loans</p>
-                </a>
-              </li>
-
-              -->
+               
                 <li class="nav-item">
                   <a href="pages_balance_enquiries.php" class="nav-link">
                     <i class="fas fa-money-bill-alt nav-icon"></i>
@@ -170,6 +162,47 @@
               </ul>
             </li>
             <!-- ./Finances -->
+
+
+            <!-- Manage Systems -->
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-cogs"></i>
+            <p>
+              Manage Systems
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="pages_AddSystem.php" class="nav-link">
+                <i class="fas fa-plus nav-icon"></i>
+                <p>Add System</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages_TotalSystem.php" class="nav-link">
+                <i class="fas fa-list nav-icon"></i>
+                <p>Total Systems</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages_LiveSystem.php" class="nav-link">
+                <i class="fas fa-broadcast-tower nav-icon"></i>
+                <p>Live System</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+<!-- ./Manage Systems -->
+
+
+
+
+
+
+
+
 
             <!--Statements-- Will be implemented later versions.
           

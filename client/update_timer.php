@@ -73,28 +73,6 @@ function deductWalletBalance($client_Id, $perMinuteCharge, $login_id) {
 
 
 
-    // // Insert the deduction amount for the current transaction into the temp_transaction table
-    // $insertTransactionQuery = "INSERT INTO temp_transaction (deduction_amount, client_id) VALUES (?, ?)";
-    // $stmt = $mysqli->prepare($insertTransactionQuery);
-    // $stmt->bind_param('di', $deductionAmount, $client_Id);
-    // $stmt->execute();
-    // $stmt->close();
-
-    // // Calculate total deducted amount till now
-    // $selectTotalDeductedQuery = "SELECT SUM(deduction_amount) FROM temp_transaction WHERE client_id = ?";
-    // $stmt = $mysqli->prepare($selectTotalDeductedQuery);
-    // $stmt->bind_param('i', $client_Id);
-    // $stmt->execute();
-    // $stmt->bind_result($totalDeductedAmount);
-    // $stmt->fetch();
-    // $stmt->close();
-
-    // // Update the total deducted amount in the database
-    // $updateTotalDeductedQuery = "UPDATE temp_transaction SET total_deducted_amount = ? WHERE client_id = ?";
-    // $stmt = $mysqli->prepare($updateTotalDeductedQuery);
-    // $stmt->bind_param('di', $totalDeductedAmount, $client_Id);
-    // $stmt->execute();
-    // $stmt->close();
 
     
      // Update wallet balance
@@ -135,12 +113,7 @@ function deductWalletBalance($client_Id, $perMinuteCharge, $login_id) {
             $stmt->close();
            }
          
-
-
-
-
  
-     
  
     // Calculate total deducted amount till now based on login_id
     $selectTotalDeductedQuery = "SELECT SUM(deduction_amount) FROM temp_transaction WHERE login_id = ?";

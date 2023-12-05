@@ -240,7 +240,7 @@ $stmt->close();
             <!-- ./Balances-->
           </div><!-- Log on to codeastro.com for more projects! -->
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
@@ -253,72 +253,72 @@ $stmt->close();
                       <i class="fas fa-times"></i>
                     </button>
                   </div>
-                </div>
+                </div> -->
                 <!-- /.card-header -->
-                <div class="card-body">
+                <!-- <div class="card-body">
                   <div class="row">
                     <div class="col-md-6">
-                      <div class="chart">
+                      <div class="chart"> -->
                         <!-- Transaction Donought chart Canvas -->
-                        <div id="PieChart" class="col-md-6" style="height: 400px; max-width: 500px; margin: 0px auto;"></div>
-                      </div>
+                        <!-- <div id="PieChart" class="col-md-6" style="height: 400px; max-width: 500px; margin: 0px auto;"></div>
+                      </div> -->
                       <!-- /.chart-responsive -->
-                    </div>
+                    <!-- </div>
                     <hr>
                     <div class="col-md-6">
                       <div class="chart">
                         <div id="AccountsPerAccountCategories" class="col-md-6" style="height: 400px; max-width: 500px; margin: 0px auto;"></div>
-                      </div>
+                      </div> -->
                       <!-- /.chart-responsive -->
-                    </div>
+                    <!-- </div> -->
 
                     <!-- /.col -->
-                  </div>
+                  <!-- </div> -->
                   <!-- /.row -->
-                </div>
+                <!-- </div> -->
                 <!-- ./card-body -->
-                <div class="card-footer">
+                <!-- <div class="card-footer">
                   <div class="row">
                     <div class="col-sm-3 col-6">
                       <div class="description-block border-right">
                         <h5 class="description-header"> <?php echo $currency.$iB_deposits; ?></h5>
                         <span class="description-text">TOTAL DEPOSITS</span>
-                      </div>
+                      </div> -->
                       <!-- /.description-block -->
-                    </div><!-- Log on to codeastro.com for more projects! -->
+                    <!-- </div>Log on to codeastro.com for more projects! -->
                     <!-- /.col -->
-                    <div class="col-sm-3 col-6">
+                    <!-- <div class="col-sm-3 col-6">
                       <div class="description-block border-right">
                         <h5 class="description-header">$ <?php echo $iB_withdrawal; ?></h5>
                         <span class="description-text">TOTAL WITHDRAWALS</span>
-                      </div>
+                      </div> -->
                       <!-- /.description-block -->
-                    </div>
+                    <!-- </div> -->
                     <!-- /.col -->
-                    <div class="col-sm-3 col-6">
+                    <!-- <div class="col-sm-3 col-6">
                       <div class="description-block border-right">
                         <h5 class="description-header">$ <?php echo $iB_Transfers; ?> </h5>
                         <span class="description-text">TOTAL TRANSFERS</span>
-                      </div>
+                      </div> -->
                       <!-- /.description-block -->
-                    </div>
+                    <!-- </div> -->
                     <!-- /.col -->
-                    <div class="col-sm-3 col-6">
+                    <!-- <div class="col-sm-3 col-6">
                       <div class="description-block">
                         <h5 class="description-header">$ <?php echo $TotalBalInAccount; ?> </h5>
                         <span class="description-text">TOTAL MONEY IN Account</span>
-                      </div>
+                      </div> -->
                       <!-- /.description-block -->
-                    </div>
-                  </div>
+                    <!-- </div> -->
+                  <!-- </div> -->
                   <!-- /.row -->
-                </div>
+                <!-- </div> -->
                 <!-- /.card-footer -->
-              </div>
+              <!-- </div> -->
               <!-- /.card -->
-            </div>
+            <!-- </div> -->
             <!-- /.col -->
-          </div>
+          <!-- </div> -->
           <!-- /.row -->
 
           <!-- Main row -->

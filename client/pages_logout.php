@@ -94,7 +94,7 @@ include('conf/config.php'); //get configuration file
 
     session_destroy();
 
-     header("Location: login.html"); //pages_client_index.php
+     header("Location: pages_client_index.php"); //pages_client_index.php
     exit;
 
 
