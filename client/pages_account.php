@@ -133,14 +133,14 @@ if (isset($_POST['change_client_password'])) {
 
                                         <h3 class="profile-username text-center"><?php echo $row->name; ?></h3>
 
-                                        <p class="text-muted text-center">Client @iBanking </p>
+                                        <p class="text-muted text-center"> </p>
 
                                         <ul class="list-group list-group-unbordered mb-3">
                                             <li class="list-group-item">
                                                 <b>ID No.: </b> <a class="float-right"><?php echo $row->national_id; ?></a>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Email: </b> <a class="float-right"><?php echo $row->email; ?></a>
+                                                <b>Email:</b> <a class="float-right"><?php echo $row->email; ?></a>
                                             </li>
                                             <li class="list-group-item">
                                                 <b>Phone: </b> <a class="float-right"><?php echo $row->phone; ?></a>

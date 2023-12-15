@@ -197,6 +197,39 @@
 <!-- ./Manage Systems -->
 
 
+  <!-- Food Systems -->
+            <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-utensils"></i>
+            <p>
+              Food Section
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="food_categories.php" class="nav-link">
+                <i class="fas fa-plus nav-icon"></i>
+                <p>Category</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="food_menu.php" class="nav-link">
+                <i class="fas fa-list nav-icon"></i>
+                <p>Menu</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="User_order.php" class="nav-link">
+                <i class="fas fa-shopping-cart nav-icon"></i>
+                <p>user order</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+<!-- ./Manage Systems -->
+
+
 
 
 

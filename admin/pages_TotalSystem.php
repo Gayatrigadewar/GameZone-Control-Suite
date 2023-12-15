@@ -6,6 +6,8 @@ check_login();
 $admin_id = $_SESSION['admin_id'];
 ?>
 
+
+
 <!DOCTYPE html>
 <html>
 <?php include("dist/_partials/head.php"); ?>

@@ -1,6 +1,8 @@
 <?php
 include('conf/config.php');
 
+
+
 // Fetch all systems from the database
 $query = "SELECT * FROM iB_systems";
 $stmt = $mysqli->prepare($query);
