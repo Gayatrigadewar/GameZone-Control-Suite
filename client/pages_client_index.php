@@ -57,9 +57,6 @@ if (isset($_POST['login'])) {
   }
 }
 
-function getSystemId() {
-  return gethostname();
-}
 
 
 

@@ -109,7 +109,7 @@ if (isset($_GET['category_id'])) {
         </div>
 
                     <!-- Display menu items in Bootstrap cards with quantity section and Add Item button -->
-                    <div class="col-md-9" >
+                    <div class="col-md-9 " >
                         <?php if ($category_id !== null): ?>
                             <h2>Menu Items for Category ID: <?= $category_id; ?></h2>
                             <div class="card-columns">
@@ -362,70 +362,7 @@ function decrementQuantity(button, index) {
 <script>
     var cartItems = [];
 
-//     function updateOrderSection() {
-//     var orderList = document.getElementById('order-items-list');
-//     var totalPriceElement = document.getElementById('total-price');
-//     var orderMessageElement = document.getElementById('order-message');
 
-//     // Clear existing items in the order list
-//     orderList.innerHTML = '';
-
-//     // Iterate through the items in the cart and display them
-//     var totalPrice = 0;
-//     cartItems.forEach(function (item, index) {
-//         var listItem = document.createElement('li');
-//         listItem.className = 'list-group-item';
-
-
-//         //    // Display item name, quantity, and price
-//         //    listItem.textContent = item.name + ' - Quantity: ' + item.quantity + ', Price: $' + (item.price * item.quantity).toFixed(2);
-
-
-//           // Display item name, quantity, and price
-//           listItem.innerHTML = `
-//             ${item.name} - 
-//             Quantity: 
-//             <span class="quantity">${item.quantity}</span>
-//             <div class="input-group">
-//                 <span class="input-group-prepend">
-//                     <button class="btn btn-outline-secondary" type="button" onclick="decrementQuantity(this, ${index})">-</button>
-//                 </span>
-//                 <input type="text" class="form-control text-center" value="${item.quantity}" readonly>
-//                 <span class="input-group-append">
-//                     <button class="btn btn-outline-secondary" type="button" onclick="incrementQuantity(this, ${index})">+</button>
-//                 </span>
-//             </div>
-//             Price: $${(item.price * item.quantity).toFixed(2)}
-//         `;
-
-//         // Display item name and price
-//         // listItem.textContent = item.name + ' - $' + item.price;
-
-//         // Add a delete button for each item
-//         var deleteButton = document.createElement('button');
-//         deleteButton.className = 'btn btn-danger btn-sm float-right';
-//         deleteButton.textContent = 'Delete';
-//         deleteButton.onclick = function () {
-//             deleteCartItem(index);
-//         };
-
-//         listItem.appendChild(deleteButton);
-//         orderList.appendChild(listItem);
-
-//         // Update total price
-//         totalPrice += parseFloat(item.price * item.quantity);
-//     });
-
-//     // Update the total price in the order section
-//     totalPriceElement.textContent = totalPrice.toFixed(2);
-
-//     // Display a message if the cart is empty
-//     if (cartItems.length === 0) {
-//         orderMessageElement.textContent = 'Your cart is empty.';
-//     } else {
-//         orderMessageElement.textContent = '';
-//     }
-// }
 
 function updateOrderSection() {
     var orderTableBody = document.getElementById('order-items-list');

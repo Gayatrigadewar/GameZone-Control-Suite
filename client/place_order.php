@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get order details from the POST request
     $orderItems = json_decode($_POST['orderItems'], true);
     $totalPrice = floatval($_POST['totalPrice']);
-
+echo('hellowcein');
     // Generate a random order ID (you can adjust this based on your requirements)
     $orderID = uniqid('ORDER_');
 

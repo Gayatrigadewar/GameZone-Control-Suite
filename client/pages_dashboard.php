@@ -156,6 +156,19 @@ $stmt->close();
 <!DOCTYPE html>
 <html lang="en">
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <head>
+  <style>
+    .carousel-caption {
+      position: absolute;
+      top: 250px;
+      left: 800px;
+      /* transform: translate(-50%, -50%); */
+    }
+
+   
+
+  </style>
+  </head>
   <?php include("dist/_partials/head.php"); ?>
   <!-- Log on to codeastro.com for more projects! -->
   <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
@@ -292,17 +305,48 @@ $_SESSION['logged_in_time']  = $loginTime;
 ?>
 <!-- ------------------------------------------------------------------------------------- -->
 
-
+<!-- 
 
 <div class="col-6 col-sm-6 col-md-6">
   <a href="User_FoodOrder.php" class="btn btn-primary">ORDER FOOOODDDD!!</a>
 </div>
 
+ -->
 
 
 
-
-
+<div class="container mt-5">
+  <div id="carouselExample" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://i.ytimg.com/vi/V93sXxkVPE4/maxresdefault.jpg" class="d-block w-100" alt="Slide 1">
+        <div class="carousel-caption d-none d-md-block">
+          <a href="User_FoodOrder.php"><button type="button" id="orderfood" class="btn btn-primary">Order Food Now....!</button></a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://1.bp.blogspot.com/-fRLw35WgaNU/XwhR1SIWPsI/AAAAAAAABYU/6E4zEfPXxGkv88QQyqdeSXnVQr9g3g1zACNcBGAsYHQ/s1600/vada-pav-indian-street-food.jpg" class="d-block w-100" alt="Slide 2">
+        <div class="carousel-caption d-none d-md-block">
+          <a href="User_FoodOrder.php"><button type="button" id="orderfood" class="btn btn-primary">Order Food Now....!</button></a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://1.bp.blogspot.com/-gm1tq71zAu0/XwqAOin6ZfI/AAAAAAAABrM/T7BigjcayFkFhVLFCQP8X5ojrkBRrIaNQCPcBGAsYHg/s1140/image_search_1594481961334.jpg" class="d-block w-100" alt="Slide 3">
+        <div class="carousel-caption d-none d-md-block">
+          <a href="User_FoodOrder.php"><button type="button" id="orderfood" class="btn btn-primary">Order Food Now....!</button></a>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
 
 
           
@@ -360,6 +404,8 @@ $_SESSION['logged_in_time']  = $loginTime;
     </div>
     <!-- /.content-wrapper -->
 
+
+
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
@@ -373,6 +419,15 @@ $_SESSION['logged_in_time']  = $loginTime;
   <!-- ./wrapper -->
 
   <!-- REQUIRED SCRIPTS -->
+
+  <script>
+  $(document).ready(function(){
+    // Activate the carousel with a specified interval
+    $('#carouselExample').carousel({
+      interval: 1000 // Set the interval in milliseconds (e.g., 2000 = 2 seconds)
+    });
+  });
+</script>
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
   

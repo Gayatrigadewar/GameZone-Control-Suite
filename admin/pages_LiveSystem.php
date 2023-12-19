@@ -25,6 +25,36 @@ include("dist/_partials/head.php");
         <!-- Main Sidebar Container -->
         <?php include("dist/_partials/sidebar.php"); ?>
 
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <script>  //===============script for pause timer=============
+        $(document).ready(function () {
+            // Add click event listener to the pause buttons
+            $('.pause-button').on('click', function () {
+                console.log("hi there xyz..............!")
+                // Get the system ID from the data-system-id attribute
+                var systemId = $(this).data('system-id');
+                
+                // Send an AJAX request to the server
+                
+                $.ajax({    
+                    type: 'POST',
+                    url: 'pause_action.php',
+                    data: { systemId: systemId },
+                    success: function (response) {
+                        console.log("hi there xyzzzzzz..............!")
+                        // Handle the response (if needed)
+                        console.log(response);
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <section class="content">
@@ -70,7 +100,10 @@ include("dist/_partials/head.php");
 
                                 // Close the login activity result set
                                 mysqli_free_result($loginResult);
-
+                                
+                                echo '<div class="card-footer">';
+                                echo '<button class="btn btn-primary pause-button" data-system-id="' . $systemRow['system_id'] . '">Pause</button>';
+                                echo '</div>';
                                 echo '</div>';
                                 echo '</div>';
                             }
@@ -79,6 +112,8 @@ include("dist/_partials/head.php");
                             echo '<div class="col-md-12"><p>No systems found.</p></div>';
                         }
 
+
+
                         // Close the ib_systems result set
                         mysqli_free_result($systemsResult);
                         ?>
@@ -86,9 +121,10 @@ include("dist/_partials/head.php");
                 </div>
             </section>
         </div>
+        
         <!-- /.content-wrapper -->
         <?php include("dist/_partials/footer.php"); ?>
-
+        
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
@@ -96,6 +132,11 @@ include("dist/_partials/head.php");
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+    
+    
+
+    
+    <!-- Include jQuery -->
 
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
