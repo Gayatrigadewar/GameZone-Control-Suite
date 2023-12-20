@@ -41,19 +41,7 @@ foreach ($loginData as $data) {
 
 <?php
 
-// Database connection parameters
-// $dbHost = "localhost";
-// $dbName = "your_database_name";
-// $dbUsername = "your_database_username";
-// $dbPassword = "your_database_password";
 
-// // Establish database connection
-// try {
-//     $dbConnection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUsername, $dbPassword);
-// } catch (PDOException $e) {
-//     echo "Error connecting to database: " . $e->getMessage();
-//     exit;
-// }
 
 
 // Function to deduct money from user's wallet
@@ -64,16 +52,6 @@ function deductWalletBalance($client_Id, $perMinuteCharge, $login_id) {
     // Calculate deduction amount based on per-minute charge
     $deductionAmount = $perMinuteCharge ;
     
-    // // Update wallet balance
-    // $updateWalletBalanceQuery = "UPDATE ib_bankaccounts SET acc_amount = acc_amount - ? WHERE client_id = ?";
-    // $stmt =$mysqli ->prepare($updateWalletBalanceQuery);
-    // $stmt->bind_param('di', $deductionAmount, $client_Id); // 'di' is for double and integer
-    // $stmt->execute();
-    // $stmt->close();
-
-
-
-
     
      // Update wallet balance
      $updateWalletBalanceQuery = "UPDATE ib_bankaccounts SET acc_amount = acc_amount - ? WHERE client_id = ?";

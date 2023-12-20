@@ -58,7 +58,9 @@ if (isset($_POST['login'])) {
 }
 
 
-
+function getSystemId() {
+  return gethostname();
+}
 
 /* Persisit System Settings On Brand */
 $ret = "SELECT * FROM `iB_SystemSettings` ";

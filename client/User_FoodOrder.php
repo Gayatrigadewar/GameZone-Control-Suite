@@ -446,7 +446,7 @@ function deleteCartItem(index) {
 
     function addItemToCart(menuItemId, itemName, itemPrice) {
         // Add the item to the cartItems array
-        var quantity = prompt("Enter quantity:", "1");
+        var quantity = ("1");
     quantity = parseInt(quantity) || 1; // Default to 1 if not a valid number
 
 
@@ -482,7 +482,7 @@ function deleteCartItem(index) {
         }
         // Prepare order details for sending to place_order.php
         var orderDetails = {
-            orderItems: cartItems,
+            orderItems: JSON.stringify(cartItems),
             totalPrice: parseFloat(document.getElementById('total-price').textContent)
             
         };
