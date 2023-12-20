@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Dec 19, 2023 at 01:44 PM
+-- Generation Time: Dec 20, 2023 at 01:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -131,11 +131,7 @@ CREATE TABLE `ib_bankaccounts` (
 --
 
 INSERT INTO `ib_bankaccounts` (`account_id`, `acc_name`, `account_number`, `acc_type`, `acc_rates`, `acc_status`, `acc_amount`, `client_id`, `client_name`, `client_national_id`, `client_phone`, `client_number`, `client_email`, `client_adr`, `created_at`) VALUES
-(20, 'gayatrigadewar', '846723915', '3 month membership ', '10', 'Active', '4953', '21', 'gayatrigadewar', '123', '9421008400', 'iBank-CLIENT-7429', 'gayatrigadewar29@gmail.com', '', '2023-12-09 06:40:07.088282'),
-(21, 'gayatrigadewar', '846723915', '3 month membership ', '10', 'Active', '500', '22', 'gayatrigadewar', '123', '9421008400', 'iBank-CLIENT-7429', 'gayatrigadewar29@gmail.com', '', '2023-12-09 06:35:18.262922'),
-(22, 'gayatri', '215986374', '1 month membership ', '20', 'Active', '9463', '23', 'gayatri', '321', '09421008400', 'iBank-CLIENT-0264', 'gayatri.pandurang2021@vitstudent.ac.in', '', '2023-12-19 08:13:29.758020'),
-(23, 'rohan', '513782064', '3 month membership ', '10', 'Active', '1212', '24', 'rohan', '11', '8624001586', 'iBank-CLIENT-8591', 'rohandevdhar915@gmail.com', '', '2023-12-09 06:37:42.386695'),
-(24, 'rohan', '850216973', '3 month membership ', '10', 'Active', '33332', '25', 'rohan', '11', '45248152', 'iBank-CLIENT-5701', 'rohandevdhar915@gmail.com', '', '2023-12-09 06:40:07.096514');
+(25, 'xyz', '209375618', '1 month membership ', '20', 'Active', '6974', '26', 'xyz', 'ppoo976r', '9955220011', 'iBank-CLIENT-5032', 'xyz@gmail.com', '', '2023-12-20 08:43:14.762908');
 
 -- --------------------------------------------------------
 
@@ -164,7 +160,8 @@ CREATE TABLE `ib_clients` (
 INSERT INTO `ib_clients` (`client_id`, `name`, `national_id`, `phone`, `address`, `email`, `password`, `profile_pic`, `client_number`, `account_type`, `account_type_rates`) VALUES
 (21, 'gayatrigadewar', '123', '9421008400', 'xyz', 'gayatrigadewar29@gmail.com', '776766528a28a7c46256a424602b5b2ad9812101', '', 'iBank-CLIENT-7429', '', 0),
 (23, 'gayatri', '321', '09421008400', 'xyz', 'gayatri.pandurang2021@vitstudent.ac.in', '10470c3b4b1fed12c3baac014be15fac67c6e815', '', 'iBank-CLIENT-0264', '', 0),
-(25, 'rohan', '11', '45248152', 'nanded', 'rohandevdhar915@gmail.com', '151a323b57b3b634559676e7b66162caaae4289a', '', 'iBank-CLIENT-5701', '', 0);
+(25, 'rohan', '11', '45248152', 'nanded', 'rohandevdhar915@gmail.com', '151a323b57b3b634559676e7b66162caaae4289a', '', 'iBank-CLIENT-5701', '', 0),
+(26, 'xyz', 'ppoo976r', '9955220011', 'pqr', 'xyz@gmail.com', '18044f86e879e412318557b76565663a9ff0e376', '', 'iBank-CLIENT-5032', '', 0);
 
 -- --------------------------------------------------------
 
@@ -219,7 +216,50 @@ INSERT INTO `ib_notifications` (`notification_id`, `notification_details`, `crea
 (53, 'gayatri Has Deposited $ 3333 To Bank Account 215986374', '2023-12-09 06:37:05.560194'),
 (54, 'rohan Has Deposited $ 1212 To Bank Account 513782064', '2023-12-09 06:37:42.384237'),
 (55, 'rohan Has Deposited $ 33333 To Bank Account 850216973', '2023-12-09 06:39:09.382085'),
-(56, 'rohan Has Deposited $ 1 To Bank Account 850216973', '2023-12-09 06:39:46.468808');
+(56, 'rohan Has Deposited $ 1 To Bank Account 850216973', '2023-12-09 06:39:46.468808'),
+(57, 'xyz Has Deposited $ 8888 To Bank Account 209375618', '2023-12-20 08:03:22.878016');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ib_order`
+--
+
+CREATE TABLE `ib_order` (
+  `id` int(11) NOT NULL,
+  `order_id` varchar(55) NOT NULL,
+  `item_name` varchar(55) NOT NULL,
+  `item_quantity` int(55) NOT NULL,
+  `total_price` int(55) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ib_order`
+--
+
+INSERT INTO `ib_order` (`id`, `order_id`, `item_name`, `item_quantity`, `total_price`, `order_date`) VALUES
+(1, '0', 'burger', 1, 350, '2023-12-20 06:02:50'),
+(2, '0', 'tea', 10, 350, '2023-12-20 06:02:50'),
+(3, 'ORDER_658283f98d229', 'burger', 1, 350, '2023-12-20 06:04:41'),
+(4, 'ORDER_658283f98d229', 'tea', 10, 350, '2023-12-20 06:04:41'),
+(5, 'ORDER_658283ff3f57d', 'burger', 1, 370, '2023-12-20 06:04:47'),
+(6, 'ORDER_658283ff3f57d', 'tea', 12, 370, '2023-12-20 06:04:47'),
+(7, '658284395b03e', 'burger', 1, 370, '2023-12-20 06:05:45'),
+(8, '658284395b03e', 'tea', 12, 370, '2023-12-20 06:05:45'),
+(9, '6582915587b33', 'burger', 8, 2780, '2023-12-20 07:01:41'),
+(10, '6582915587b33', 'misal pav', 4, 2780, '2023-12-20 07:01:41'),
+(11, '6582915587b33', 'pj', 1, 2780, '2023-12-20 07:01:41'),
+(12, '6582a1eee5f9f', 'misal pav', 2, 240, '2023-12-20 08:12:30'),
+(13, '6582a24b89af3', 'misal pav', 2, 540, '2023-12-20 08:14:03'),
+(14, '6582a24b89af3', 'pj', 1, 540, '2023-12-20 08:14:03'),
+(15, '6582a7a3b5dec', 'bhaji', 1, 437, '2023-12-20 08:36:51'),
+(16, '6582a7a3b5dec', 'puri', 1, 437, '2023-12-20 08:36:51'),
+(17, '6582a7a3b5dec', 'burger', 1, 437, '2023-12-20 08:36:51'),
+(18, '6582a8910e642', 'bhaji', 1, 687, '2023-12-20 08:40:49'),
+(19, '6582a8910e642', 'puri', 1, 687, '2023-12-20 08:40:49'),
+(20, '6582a8910e642', 'burger', 2, 687, '2023-12-20 08:40:49'),
+(21, '6582a922b99bd', 'tea', 1, 10, '2023-12-20 08:43:14');
 
 -- --------------------------------------------------------
 
@@ -324,13 +364,9 @@ CREATE TABLE `ib_transactions` (
 --
 
 INSERT INTO `ib_transactions` (`tr_id`, `tr_code`, `account_id`, `acc_name`, `account_number`, `acc_type`, `acc_amount`, `tr_type`, `tr_status`, `client_id`, `client_name`, `client_national_id`, `transaction_amt`, `withdraw_amount`, `client_phone`, `receiving_acc_no`, `created_at`, `receiving_acc_name`, `receiving_acc_holder`) VALUES
-(93, 'mV3SxuksUH4EJ51OvFiw', '20', 'gayatrigadewar', '846723915', '3 month membership ', '', 'Deposit', 'Success ', '21', 'gayatrigadewar', '123', '5000', '', '9421008400', '', '2023-12-09 06:34:52.644206', NULL, NULL),
-(94, '7Ph0a1KVOLMCjuBQvyUo', '21', 'gayatrigadewar', '846723915', '3 month membership ', '', 'Deposit', 'Success ', '22', 'gayatrigadewar', '123', '500', '', '9421008400', '', '2023-12-09 06:35:18.258008', NULL, NULL),
-(95, 'rhO7lEqRs2HVuZ106KNf', '22', 'gayatri', '215986374', '1 month membership ', '', 'Deposit', 'Success ', '23', 'gayatri', '321', '3333', '', '09421008400', '', '2023-12-09 06:37:05.558126', NULL, NULL),
-(96, '7eR2xTrGi1cZHBmVaAYE', '23', 'rohan', '513782064', '3 month membership ', '', 'Deposit', 'Success ', '24', 'rohan', '11', '1212', '', '8624001586', '', '2023-12-09 06:37:42.382495', NULL, NULL),
-(97, 'A7qxshe1l2IUPzGuWoFm', '24', 'rohan', '850216973', '3 month membership ', '', 'Deposit', 'Success ', '25', 'rohan', '11', '33333', '', '45248152', '', '2023-12-09 06:39:09.379968', NULL, NULL),
-(99, '6ygRUvnjiKI7Pr0pYfo5', '20', '', '846723915', '', '', 'Withdraw', 'Success', '21', '', NULL, '25', '', NULL, '', '2023-12-10 11:23:23.351807', NULL, NULL),
-(100, 'xdhf0U6LicXKRkSzByZe', '22', '', '215986374', '', '', 'Withdraw', 'Success', '23', '', NULL, '7', '', NULL, '', '2023-12-19 09:17:58.305081', NULL, NULL);
+(101, 'KjDXFv7GkWRCiVZ3BJ1p', '25', 'xyz', '209375618', '1 month membership ', '', 'Deposit', 'Success ', '26', 'xyz', 'ppoo976r', '8888', '', '9955220011', '', '2023-12-20 08:03:22.876160', NULL, NULL),
+(102, '', '', '', NULL, '', '', 'Food debit', '', '26', '', NULL, '687', '', NULL, '', '2023-12-20 08:40:49.065990', NULL, NULL),
+(103, '', '', '', NULL, '', '', 'Foodorder debit', '', '26', '', NULL, '10', '', NULL, '', '2023-12-20 08:43:14.766303', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -354,22 +390,32 @@ CREATE TABLE `login_activity` (
 --
 
 INSERT INTO `login_activity` (`login_id`, `client_id`, `login_time`, `logout_time`, `system_id`, `login_status`, `login_timer`, `login_live_status`) VALUES
-(147, 23, '2023-12-19 09:19:24', NULL, 'LAPTOP-7PGQTNPI', 2, '2023-12-19 14:49:24', 0);
+(149, 21, '2023-12-20 06:09:53', '2023-12-20 13:32:22', 'LAPTOP-7PGQTNPI', 0, '2023-12-20 11:39:53', 0),
+(150, 26, '2023-12-20 08:03:01', NULL, 'LAPTOP-7PGQTNPI', 1, '2023-12-20 13:33:01', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ord`
+-- Table structure for table ` ord`
 --
 
-CREATE TABLE `ord` (
+CREATE TABLE ` ord` (
   `id` int(11) NOT NULL,
   `order_id` int(55) NOT NULL,
   `item_name` varchar(55) NOT NULL,
-  `quantity` int(11) NOT NULL,
+  `item_quantity` int(11) NOT NULL,
   `total_price` int(55) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table ` ord`
+--
+
+INSERT INTO ` ord` (`id`, `order_id`, `item_name`, `item_quantity`, `total_price`, `order_date`) VALUES
+(1, 0, '', 0, 286, '2023-12-19 13:03:05'),
+(2, 0, '', 0, 1230, '2023-12-19 13:15:04'),
+(3, 0, '', 0, 160, '2023-12-19 13:21:20');
 
 -- --------------------------------------------------------
 
@@ -494,6 +540,12 @@ ALTER TABLE `ib_notifications`
   ADD PRIMARY KEY (`notification_id`);
 
 --
+-- Indexes for table `ib_order`
+--
+ALTER TABLE `ib_order`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ib_staff`
 --
 ALTER TABLE `ib_staff`
@@ -524,9 +576,9 @@ ALTER TABLE `login_activity`
   ADD PRIMARY KEY (`login_id`);
 
 --
--- Indexes for table `ord`
+-- Indexes for table ` ord`
 --
-ALTER TABLE `ord`
+ALTER TABLE ` ord`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -585,19 +637,25 @@ ALTER TABLE `ib_admin`
 -- AUTO_INCREMENT for table `ib_bankaccounts`
 --
 ALTER TABLE `ib_bankaccounts`
-  MODIFY `account_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `account_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `ib_clients`
 --
 ALTER TABLE `ib_clients`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `ib_notifications`
 --
 ALTER TABLE `ib_notifications`
-  MODIFY `notification_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `notification_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT for table `ib_order`
+--
+ALTER TABLE `ib_order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `ib_staff`
@@ -621,19 +679,19 @@ ALTER TABLE `ib_systemsettings`
 -- AUTO_INCREMENT for table `ib_transactions`
 --
 ALTER TABLE `ib_transactions`
-  MODIFY `tr_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `tr_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT for table `login_activity`
 --
 ALTER TABLE `login_activity`
-  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
--- AUTO_INCREMENT for table `ord`
+-- AUTO_INCREMENT for table ` ord`
 --
-ALTER TABLE `ord`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE ` ord`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
