@@ -319,19 +319,19 @@ $_SESSION['logged_in_time']  = $loginTime;
   <div id="carouselExample" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://i.ytimg.com/vi/V93sXxkVPE4/maxresdefault.jpg" class="d-block w-100" alt="Slide 1">
+        <img src="../admin/dist/menu_img/burger.jpg" class="d-block w-100" alt="Slide 1">
         <div class="carousel-caption d-none d-md-block">
           <a href="User_FoodOrder.php"><button type="button" id="orderfood" class="btn btn-primary">Order Food Now....!</button></a>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="https://1.bp.blogspot.com/-fRLw35WgaNU/XwhR1SIWPsI/AAAAAAAABYU/6E4zEfPXxGkv88QQyqdeSXnVQr9g3g1zACNcBGAsYHQ/s1600/vada-pav-indian-street-food.jpg" class="d-block w-100" alt="Slide 2">
+        <img src="../admin/dist/menu_img/burger.jpg" class="d-block w-100" alt="Slide 2">
         <div class="carousel-caption d-none d-md-block">
           <a href="User_FoodOrder.php"><button type="button" id="orderfood" class="btn btn-primary">Order Food Now....!</button></a>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="https://1.bp.blogspot.com/-gm1tq71zAu0/XwqAOin6ZfI/AAAAAAAABrM/T7BigjcayFkFhVLFCQP8X5ojrkBRrIaNQCPcBGAsYHg/s1140/image_search_1594481961334.jpg" class="d-block w-100" alt="Slide 3">
+        <img src="../admin/dist/menu_img/burger.jpg" class="d-block w-100" alt="Slide 3">
         <div class="carousel-caption d-none d-md-block">
           <a href="User_FoodOrder.php"><button type="button" id="orderfood" class="btn btn-primary">Order Food Now....!</button></a>
         </div>
